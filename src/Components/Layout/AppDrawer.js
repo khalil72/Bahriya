@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ActivityCard from './DrawerComponent/ActivityCard';
 import QuickLinks from './DrawerComponent/QuickLinks';
+import AppStore from './DrawerComponent/AppStore';
 const useStyle = makeStyles({
   BoxDrawer:{
     backgroundColor:'rgb(242, 243, 248)',
@@ -75,7 +76,11 @@ const AppDrawer = () => {
 
            <ActivityCard />
           </Box>
+          {/* component */}
           <QuickLinks />
+          <AppStore />
+
+         
           
       
           

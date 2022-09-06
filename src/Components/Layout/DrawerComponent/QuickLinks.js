@@ -6,6 +6,8 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HomeIcon from '@mui/icons-material/Home';
+import ApartmentIcon from '@mui/icons-material/Apartment';
+import BookIcon from '@mui/icons-material/Book';
 import { Link } from 'react-router-dom';
 
 const QuickLinks = () => {
@@ -39,7 +41,7 @@ const QuickLinks = () => {
                     
                     <Link to='/listingProperty'>
                         <Card sx={{p:2}}>
-                            <HomeIcon  edge='center' style={{marginLeft:'15px'}} />
+                            <ApartmentIcon  edge='center' style={{marginLeft:'15px'}} />
 
                            <Typography component='div' textAlign='center' sx={{fontSize:'12px'}}  >
                            ListingProperty 
@@ -50,12 +52,25 @@ const QuickLinks = () => {
                 </Grid>
                 <Grid lg={6} sm={12} p={1}>
                     
-                    <Link to='/listingProperty'>
+                    <Link to='/project'>
                         <Card sx={{p:2}}>
-                            <HomeIcon  edge='center' style={{marginLeft:'15px'}} />
+                            <ApartmentIcon  edge='center' style={{marginLeft:'17px'}} />
 
-                           <Typography component='div' textAlign='center' sx={{fontSize:'12px'}}  >
-                           projects
+                           <Typography component='div'  sx={{fontSize:'12px' }}  >
+                           Our Projects
+                           </Typography>
+                        </Card>
+
+                    </Link>
+                </Grid>
+                <Grid lg={6} sm={12} p={1}>
+                    
+                    <Link to='/blogs'>
+                        <Card sx={{p:2}}>
+                            <BookIcon  edge='center' style={{marginLeft:'17px'}} />
+
+                           <Typography textAlign='center' component='div'  sx={{fontSize:'12px' }}  >
+                           Our Blogs
                            </Typography>
                         </Card>
 
