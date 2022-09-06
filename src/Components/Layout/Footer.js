@@ -9,7 +9,7 @@ import SocialIcons from './Footer/SocialIcons'
 
 const Footer = () => {
   return (
-    <Box p={3}  sx={{backgroundColor:'#262f35' , color:'#cbcfd4' ,padding:4 }}>
+    <Box p={3}  sx={{backgroundColor:'#262f35' , color:'#cbcfd4'  }}>
       <SocialIcons />
       <Box mb={2}>
     <Typography variant='subtitle2' component='span' mx={10} >

@@ -1,60 +1,71 @@
 import React ,{useState , useEffect}from 'react'
-import { AppBar,    Chip,       Toolbar, Typography  } from '@mui/material'
+import { AppBar,         Toolbar, Typography  } from '@mui/material'
 import { Box, Container } from '@mui/system'
-import Property051 from '../../Assets/Images/Property051.png'
+import Property051 from '../../Assets/Images/Logo.png'
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import AppDrawer from './AppDrawer';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import PropTypes from 'prop-types';
+import CssBaseline from '@mui/material/CssBaseline';
 
 const useStyle = makeStyles({
   Link: {
     textDecoration: 'none',
-    color:' rgb(51, 51, 51) !important',
+    color:' white !important',
     padding: '0px 8px ',
     marginTop:'8px'
     
   },
+  
   AppBar:{
-    backgroundColor:'white !important',
+    backgroundColor:'rgba(0,0,0,0.5) !important',
     borderBottom: '1px solid rgb(200, 200, 200)',
     fontSize: '14px',
     boxShadow:'none !important'
+
   },
 
   })
 
+  function ElevationScroll(props) {
+    const { children, window } = props;
+    
+    const trigger = useScrollTrigger({
+      disableHysteresis: true,
+      threshold: 0,
+      target: window ? window() : undefined,
+    });
+  
+    return React.cloneElement(children, {
+      elevation: trigger ? 4 : 0,
+    });
+  }
+  
+  ElevationScroll.propTypes = {
+    children: PropTypes.element.isRequired,
+    /**
+     * Injected by the documentation to work in an iframe.
+     * You won't need it on your project.
+     */
+    window: PropTypes.func,
+  };
 
 
 
-
-const Header = () => {
+const Header = (props) => {
 
   
 
-  const [sticky, setSticky] = useState("");
-   // on render, set listener
-   useEffect(() => {
-    // console.log("hello");
-    window.addEventListener("scroll", isSticky);
-    return () => {
-      window.removeEventListener("scroll", isSticky);
-    };
-  }, []);
-
-  const isSticky = () => {
-    /* Method that will fix header after a specific scrollable */
-    const scrollTop = window.scrollY;
-    const stickyClass = scrollTop >= 250 ? "is-sticky" : "";
-    setSticky(stickyClass);
-    console.log(stickyClass);
-  };
-
  
-  const classes = `header-section d-none d-xl-block ${sticky}`;
+
+;
   const useClasses= useStyle();
   return (
-    <Box sx={{ flexGrow: 2 }} className={classes}>
+    <Box sx={{ flexGrow: 2 }} >
+        <CssBaseline />
+        <ElevationScroll {...props}>
         <AppBar   className={useClasses.AppBar}>
       <Container maxWidth='xl'>
         <Toolbar  disableGutters >
@@ -78,34 +89,6 @@ const Header = () => {
              </Link> 
           </Typography> 
 
-           {/* <Box sx={{flexGrow: 1,  ml:4,
-           
-                 display:{ xs: 'none', md: 'flex' , sm:'block' }}}>
-                <Link to='/buy' className={useClasses.Link}>
-                  Buy
-                </Link>
-                <Link to='/rent' className={useClasses.Link}>
-                  Rent
-                </Link> 
-                <Link to='/project' className={useClasses.Link}>
-                  Project
-                </Link> 
-              
-           </Box> */}
-           {/* <Box sx={{flexGrow: 1,  flexFlow: 'row-wrap',
-           
-                 display:{ xs: 'none', md: 'flex' , sm:'block' }}}>
-                  <Button variant="outlined" >
-                  PropertyID
-                  </Button>
-                 
-                  <Button variant='contained'  sx={{backgroundColor:'#e4002b' , color:'white',
-                  ml:2
-                }}>
-                      AddProperty
-                  </Button>
-               
-           </Box>  */}
            <Box sx={{ flexGrow: 1 }}/>
            <Box sx={{flexGrow: 0,  flexFlow: 'row-wrap',
             justifyContent: 'space-between', 
@@ -150,6 +133,7 @@ const Header = () => {
       </Container>
       
     </AppBar>
+    </ElevationScroll>
     </Box>
      
     

@@ -1,3 +1,4 @@
+import { Box } from '@mui/material'
 import React from 'react'
 import RouterPath from '../../Routes/RouterPath'
 
@@ -7,12 +8,21 @@ import Header from './Header'
 
 const Layout = () => {
   return (
-    <div>
+    <>
       <Header />
-    
-        <RouterPath />
+     
+       
+      <Box style={{marginBottom:'0px !important'}}>
+      <RouterPath />
+      </Box>
+     
+      
+   
+     
+        
+       
       <Footer />
-    </div>
+    </>
   )
 }
 
