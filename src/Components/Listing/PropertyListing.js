@@ -12,6 +12,7 @@ import CityData from '../../Assets/Data/CityData'
 const textStyle = makeStyles({
   heading: {
    fontSize:'16px  !important',
+   
    lineHeight:'19px  !important',
    color:'#000  !important',
    overflow:'hidden  !important',

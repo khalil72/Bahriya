@@ -1,16 +1,21 @@
-import React from 'react'
+import React , {useState} from 'react'
 import Box from '@mui/material/Box';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+
 import Button from '@mui/material/Button';
 import { makeStyles } from '@material-ui/styles';
-import { Divider, Grid, Link } from '@mui/material';
+import {  Grid, Link , Drawer, IconButton, Divider } from '@mui/material';
 import profile  from '../../Assets/Images/profile2.webp'
+import MenuIcon from '@mui/icons-material/Menu';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ActivityCard from './DrawerComponent/ActivityCard';
+import QuickLinks from './DrawerComponent/QuickLinks';
 const useStyle = makeStyles({
   BoxDrawer:{
     backgroundColor:'rgb(242, 243, 248)',
     justifyContent: 'space-between',
     borderRadius:'25px',
-    padding: '36px 22px 23px 16px'
+    padding: '36px 22px 23px 16px',
+   
 
   
   }
@@ -19,65 +24,65 @@ const useStyle = makeStyles({
 
 const AppDrawer = () => {
   const useClasses = useStyle();
-    const [state, setState] = React.useState({
-        top: false,
-        left: false,
-        bottom: false,
-        right: false,
-      });
-    
-      const toggleDrawer = (anchor, open) => (event) => {
-        if (
-          event &&
-          event.type === 'keydown' &&
-          (event.key === 'Tab' || event.key === 'Shift')
-        ) {
-          return;
-        }
-    
-        setState({ ...state, [anchor]: open });
-      };
-    
-      const list = (anchor) => (
-        <Box
-          sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
-          role="presentation"
-          onClick={toggleDrawer(anchor, false)}
-          onKeyDown={toggleDrawer(anchor, false)}
-        >
-         <Box className={useClasses.BoxDrawer}>
-          <Grid container>
-            <Grid lg={6} sm={12}>
-              <img src={profile} alt='/'  style={{width:'64px' , height:'64px'}}/>
+  const[isDrawerOpen , setIsDrawerOpen]= useState(false);
 
-            </Grid>
   
-            <Grid lg={6} sm={12}>
-              <Link to='/login'>
-                <Button component='div' size='large'  variant="contained"  sx={{backgroundColor:'black' , color:'white' , marginTop:'10px'
-              , "&:hover": {
-                boxShadow: '0 0em 0em 0 rgb(0 0 0 / 20%)',
-                backgroundColor: '#e8e8e8',
+  
+  return (
+    <Box>
+         <Box>
+         <IconButton onClick={() => setIsDrawerOpen(true)} style={{borderRadius:'25px', backgroundColor:'white' , 
+         boxShadow:'0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)'}}>
+             
+                <MenuIcon  size="small" edge='start'/>
+                <AccountCircleIcon size="small" edge='start' sx={{marginLeft:'5px'}}/>
+
+              
+          </IconButton>
+
+         <Drawer anchor='right' open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} 
+         PaperProps={{
+
+          sx: {
+            width: 300
+          }
+        }}
+         >
+          
+          <Box className={useClasses.BoxDrawer}>
+         <Grid container>
+             <Grid lg={6} sm={12}>
+             <img src={profile} alt='/'  style={{width:'64px' , height:'64px'}}/>
+
+           </Grid>
+  
+             <Grid lg={6} sm={12}>
+               <Link to='/login'>
+               <Button component='div' size='large'  variant="contained"  sx={{backgroundColor:'black' , color:'white' , marginTop:'10px'
+             , "&:hover": {
+                 boxShadow: '0 0em 0em 0 rgb(0 0 0 / 20%)',
+               backgroundColor: '#e8e8e8',
                 borderColor: 'transparent',
                 color: '#333333!important'
               }
-              }}>
-                    Login
+             }}>
+                   Login
                 </Button>
-              </Link>
+               </Link>
             </Grid>
-          </Grid>
+           </Grid>
+           <Divider />
 
-          <Divider />
-         </Box>
-        
+           <ActivityCard />
+          </Box>
+          <QuickLinks />
+          
+      
+          
          
-        </Box>
-      );
-  return (
-    <div>
-         <div>
-      {[ 'right'].map((anchor) => (
+    
+    </Drawer>
+      {/* {[ 'user'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
           <SwipeableDrawer
@@ -89,9 +94,9 @@ const AppDrawer = () => {
             {list(anchor)}
           </SwipeableDrawer>
         </React.Fragment>
-      ))}
-    </div>
-    </div>
+      ))} */}
+    </Box>
+    </Box>
   )
 }
 
