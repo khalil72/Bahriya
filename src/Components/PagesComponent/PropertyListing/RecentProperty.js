@@ -21,6 +21,9 @@ const RecentProperty = () => {
                 <Typography mx={2} variant='h6' component ='div' fontWeight={500}>
                 Reference site about 
                 </Typography>
+                <Typography mx={2} mb={1} nowrap variant='body1' component ='div' fontWeight={600}>
+                  PropertyLocation 
+                </Typography>
                 <Typography variant='body2' component='div' mx={2}>
                  What is Lorem Ipsum in English?
                  Lorem Ipsum, sometimes referred to as 'lipsum', is the placeholder text used in design when creating content
@@ -48,6 +51,9 @@ const RecentProperty = () => {
                 {/* Title */}
                 <Typography mx={2} variant='h6' component ='div' fontWeight={500}>
                 Reference site about 
+                </Typography>
+                <Typography mx={2} mb={1} nowrap variant='body1' component ='div' fontWeight={600}>
+                  PropertyLocation 
                 </Typography>
                 <Typography variant='body2' component='div' mx={2}>
                  What is Lorem Ipsum in English?
