@@ -6,6 +6,10 @@ import ImageProperty from '../../../Assets/Images/1.jpg'
 const RecentProperty = () => {
   return (
     <Box sx={{p:5 , my:0}}>
+      {/* Show total properties */}
+      <Typography>
+        
+      </Typography>
         <Card style={{height:'200px'}}>
           <Grid container p={2}>
             <Grid lg={4} sm={12} >

@@ -1,8 +1,15 @@
+import { Box, } from '@mui/material'
 import React from 'react'
+import LoginForm from '../../Components/PagesComponent/Login/LoginForm'
 
 const Login = () => {
   return (
-    <div>Login</div>
+    
+       <Box sx={{backgroundColor:'#f4f4f4' , my:8 , height:'100vh' , mb:'0'}}>
+         <LoginForm />
+       </Box>
+    
+   
   )
 }
 

@@ -1,8 +1,13 @@
+import { Box } from '@mui/material'
 import React from 'react'
+import Register from '../../Components/PagesComponent/Register/Register'
 
 const Signup = () => {
   return (
-    <div>Signup</div>
+    <Box sx={{backgroundColor:'#f4f4f4' , my:8 , height:'100vh' , mb:'0'}}>
+      <Register />
+        
+    </Box>
   )
 }
 
