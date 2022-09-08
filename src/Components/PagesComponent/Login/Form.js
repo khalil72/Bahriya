@@ -6,13 +6,15 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import { Link } from 'react-router-dom';
+import { Link ,  useNavigate } from 'react-router-dom';
 
 const Form = () => {
+    const navigate = useNavigate();
 
     const onSubmit =(e)=> {
         e.preventDefault();
         const data = new FormData(e.currentTarget);
+        navigate('/dashboard');
         console.log({
             email:data.get('email'),
             password:data.get('password'),
