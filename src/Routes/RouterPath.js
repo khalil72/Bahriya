@@ -1,5 +1,9 @@
 import React from 'react'
 import { Routes ,Route ,Navigate } from 'react-router-dom'
+import Dashboard from '../Components/PagesComponent/Dashboard/Dashboard'
+import EditProperties from '../Components/PagesComponent/Dashboard/UserProperties/EditProperties'
+import MyProperties from '../Components/PagesComponent/Dashboard/UserProperties/MyProperties'
+
 import Aboutus from '../Pages/Aboutus/Aboutus'
 import Architect from '../Pages/Architect/Architect'
 import Blogs from '../Pages/Blogs/Blogs'
@@ -32,6 +36,13 @@ const RouterPath = () => {
             <Route path='/signup'  element={<Signup />} />
             <Route path='/aboutus'  element={<Aboutus />} />
             <Route path='/news'  element={<News />} />
+            
+            <Route path='/dashboard'  element={<Dashboard />} />
+            <Route path='/dashboard/MyProperties'  element={<MyProperties />} />
+            <Route path='/dashboard/MyProperties/Edit'  element={<EditProperties />} />
+
+
+          
 
 
         </Routes>

@@ -5,7 +5,7 @@ import LoginForm from '../../Components/PagesComponent/Login/LoginForm'
 const Login = () => {
   return (
     
-       <Box sx={{backgroundColor:'#f4f4f4' , my:8 , height:'100vh' , mb:'0'}}>
+       <Box sx={{backgroundColor:'#f4f4f4' , my:8  , mb:'0'}}>
          <LoginForm />
        </Box>
     
