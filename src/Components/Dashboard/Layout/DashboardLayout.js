@@ -1,6 +1,7 @@
 import { Box, Grid, Typography } from '@mui/material'
 import React from 'react'
 import PropertiesCard from '../../PagesComponent/Dashboard/Card/PropertiesCard'
+import ApproveProperty from '../PropertiesSection/ApproveProperty'
 import PandingProperty from '../PropertiesSection/PandingProperty'
 import RecentProperty from '../PropertiesSection/RecentProperty'
 import DashboardSidebar from './DashboardSidebar'
@@ -19,6 +20,7 @@ const DashboardLayout = () => {
                   </Typography>
                   <PropertiesCard  />
                   <RecentProperty />
+                  <ApproveProperty />
                   <PandingProperty />
                   
             </Grid>

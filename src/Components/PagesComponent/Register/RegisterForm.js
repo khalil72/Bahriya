@@ -33,7 +33,7 @@ const RegisterForm = () => {
               Sign Up
         </Typography>
 
-        <Box component='form' validate   sx={{mt:2}}>
+        <Box component='form' validate or  sx={{mt:2}}>
 
            <MuiPhoneNumber
              
