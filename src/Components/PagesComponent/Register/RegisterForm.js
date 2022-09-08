@@ -13,11 +13,11 @@ const RegisterForm = () => {
   const [email , setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
-  const formSubmit = (e) => {
-    e.preventDefault();
-    console.log(phone,email,password);
+  // const formSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(phone,email,password);
 
-  }
+  // }
  
 
 
@@ -33,7 +33,7 @@ const RegisterForm = () => {
               Sign Up
         </Typography>
 
-        <Box component='form' validate onSubmit={formSubmit}  sx={{mt:2}}>
+        <Box component='form' validate   sx={{mt:2}}>
 
            <MuiPhoneNumber
              
@@ -48,7 +48,7 @@ const RegisterForm = () => {
               name='phone'
               autoComplete="phone-number"
             
-              onChange={(e) => setPhone(e.target.value)}
+              // onChange={(e) => setPhone(e.target.value)}
           
             />
               <TextField  
@@ -60,7 +60,7 @@ const RegisterForm = () => {
              name="email"
              autoComplete="email"
              autoFocus
-             onChange={(e) => setEmail(e.target.value)}
+            //  onChange={(e) => setEmail(e.target.value)}
             
             />
            <TextField
@@ -72,7 +72,7 @@ const RegisterForm = () => {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                onChange={(e) => setPassword(e.target.value)}
+                // onChange={(e) => setPassword(e.target.value)}
             
               />
                <FormControlLabel
