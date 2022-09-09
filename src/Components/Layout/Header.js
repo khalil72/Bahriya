@@ -55,12 +55,6 @@ const useStyle = makeStyles({
 
 
 const Header = (props) => {
-
-  
-
- 
-
-;
   const useClasses= useStyle();
   return (
     <Box sx={{ flexGrow: 2 }} >

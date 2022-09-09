@@ -5,6 +5,8 @@ import EditProperties from '../Components/PagesComponent/Dashboard/UserPropertie
 import MyProperties from '../Components/PagesComponent/Dashboard/UserProperties/MyProperties'
 
 import Aboutus from '../Pages/Aboutus/Aboutus'
+import BuyProperties from '../Pages/AddProperties/BuyProperties'
+import RentProperties from '../Pages/AddProperties/RentProperties'
 import Architect from '../Pages/Architect/Architect'
 import Blogs from '../Pages/Blogs/Blogs'
 
@@ -40,6 +42,8 @@ const RouterPath = () => {
             <Route path='/dashboard'  element={<Dashboard />} />
             <Route path='/dashboard/MyProperties'  element={<MyProperties />} />
             <Route path='/dashboard/MyProperties/Edit'  element={<EditProperties />} />
+            <Route path='/dashboard/MyProperties/AddProperty/Buy'  element={<BuyProperties />} />
+            <Route path='/dashboard/MyProperties/AddProperty/Rent'  element={<RentProperties />} />
 
 
           

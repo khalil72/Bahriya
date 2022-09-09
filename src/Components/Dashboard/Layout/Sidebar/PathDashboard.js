@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, } from 'react-router-dom'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Accordion, AccordionDetails, AccordionSummary, 
     Box, Card, Divider,  Typography } from '@mui/material'
@@ -8,8 +8,23 @@ import DomainAddOutlinedIcon from '@mui/icons-material/DomainAddOutlined';
 import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
+import { makeStyles } from '@material-ui/styles';
+
+
+const useStyle = makeStyles({
+    Link: {
+      textDecoration: 'none',
+      color:' black !important',
+   
+   
+      
+    },
+}) 
 
 const PathDashboard = () => {
+    const useClasses= useStyle();
+   
+
   return (
     <Box p={2}> 
         <Card style={{borderRadius: '30px 30px 0 0' , paddingTop: '20px' , height:'calc(100% - 232px)' ,
@@ -41,13 +56,39 @@ const PathDashboard = () => {
                         <EmojiTransportationIcon />
                         <Typography  mx={2}>
                         Properties</Typography>
-                      
+                            
                         </Box>
-                        <Divider style={{marginBottom:'10px'}} />
-                            <Box mb={1} sx={{display:'flex'}}>
-                            <DomainAddOutlinedIcon />
-                                <Typography mx={2}>Add Properties</Typography>
-                            </Box>
+                       <Accordion sx={{margin:'0px !important' , padding:'0px'}} style={{boxShadow:'none' , padding:'0px !important' , margin:'0px'}}>
+                            <AccordionSummary  expandIcon={<ExpandMoreIcon />} 
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                    sx={{padding:'0px !important'}}
+                                    >
+                                    <Box mb={1} sx={{display:'flex' , padding:'0px !important'}}>
+                                          <DomainAddOutlinedIcon />
+                                           <Typography mx={2} mt={0.1}>Add Properties</Typography>
+                                     </Box>
+                            </AccordionSummary>
+
+                                  <AccordionDetails>
+                                     <Link to='/dashboard/MyProperties/AddProperty/Buy' className={useClasses.Link}>
+                                     <Box sx={{display:'flex'}}>
+                                 
+                                        <Typography >Buy</Typography>
+                                       </Box> 
+                                     </Link>
+                                  </AccordionDetails>
+                                  <Divider style={{marginBottom:'10px'}} />
+                                  <AccordionDetails>
+                                  <Link to='/dashboard/MyProperties/AddProperty/Rent' className={useClasses.Link}>
+                                        Rent
+                                     </Link>
+                                     
+                                  </AccordionDetails>
+
+
+                                </Accordion>
+                            
                         <Divider style={{marginBottom:'10px'}} />
                         <Box sx={{display:'flex'}}>
                          <Person2OutlinedIcon  />

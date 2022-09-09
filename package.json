@@ -21,6 +21,8 @@
     "react-collapse": "^5.1.1",
     "react-collapsed": "^3.3.2",
     "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.2",
+    "react-mui-stepper": "^0.1.7",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
