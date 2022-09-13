@@ -36,29 +36,33 @@ const Form = () => {
       axios.post(`${BASE_URL}login` , userData)
       .then((response) => {
         const data= response.data;
-        // console.log('data.status');
         if(data.status){
-             navigate('/dashboard');
-            // console.log('data link')
+             navigate('/login');
         }
         else{
-            alert('data found')
+            navigate('/dashboard');
         }
       })
       .catch((error)=>{
+        // alert('error data')
         
         if(error.response){
-            const data = error.message;
+            // const data = error.message;
+            
 
-            // const data = error.response.data?.data;
+             const data = error.response.data?.data;
             // console.log('error?.response');
             // toast(data,"error");
+            
             ErrorHandler(data);
-           
+            
+
             console.log(error?.response);
             console.log("server responded");
         }else if (error.request) {
             console.log("network error");
+          
+            ErrorHandler(error.response);
           } else {
             console.log(error);
           }

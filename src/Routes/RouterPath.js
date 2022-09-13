@@ -18,11 +18,21 @@ import Products from '../Pages/Products/Products'
 import Projects from '../Pages/Projects/Projects'
 
 import Signup from '../Pages/Signup/Signup'
+import {  useState } from "react";
 
 
 
 const RouterPath = () => {
- const [user,setUser]= React.useState(null);
+ const [user,setUser]= useState(null);
+
+
+
+
+ 
+
+//  const userRef= useRef();
+
+
 
 //  useEffect(()=>{
 // setUser({
@@ -45,21 +55,21 @@ const RouterPath = () => {
             <Route path='/blogs'  element={<Blogs />} />
             <Route path='/aboutus'  element={<Aboutus />} />
             <Route path='/news'  element={<News />} />
-            {!user ?
-              <>
+            {/* {!user ?
+              <> */}
                <Route path='/login'  element={<Login />} />
                <Route path='/signup'  element={<Signup />} />
-              </>  
+              {/* </>  
                   :
-                 <>
+                 <> */}
                   <Route path='/dashboard'  element={<Dashboard />} />
                   <Route path='/dashboard/MyProperties'  element={<MyProperties />} />
                   <Route path='/dashboard/MyProperties/Edit'  element={<EditProperties />} />
                   <Route path='/dashboard/MyProperties/AddProperty/Buy'  element={<BuyProperties />} />
                   <Route path='/dashboard/MyProperties/AddProperty/Rent'  element={<RentProperties />} />
-                 </> 
+                 {/* </> 
 
-              }
+              } */}
             <Route path='*'  element={()=><h1>Page Not FOund</h1>} />
 
                

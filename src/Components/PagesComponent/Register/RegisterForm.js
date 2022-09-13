@@ -86,8 +86,12 @@ const RegisterForm = () => {
       //  console.log(response);
        // console.log(response.data);
        const data = response.data;
+      
        if(data.status){
-        navigate('/login')
+        navigate('/dashboard')
+       }
+       else{
+        navigate('/dashboard')
        }
     
       })
