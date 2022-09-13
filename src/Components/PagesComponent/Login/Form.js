@@ -36,12 +36,15 @@ const Form = () => {
       axios.post(`${BASE_URL}login` , userData)
       .then((response) => {
         const data= response.data;
-        if(data.status){
-             navigate('/login');
+        if(data.success){
+            // const token = data?.data?.token;
+            // console.log("🚀 ~ file: Form.js ~ line 41 ~ .then ~ token", token)
+            // localStorage.setItem("token",token);
+             navigate('dashboard');
         }
-        else{
-            navigate('/dashboard');
-        }
+        // else{
+        //     navigate('login');
+        // }
       })
       .catch((error)=>{
         // alert('error')
@@ -50,8 +53,8 @@ const Form = () => {
             // const data = error.message;
             
 
-             const data = error.response.data?.data;
-            // console.log('error?.response');
+             const data =error?.response?.data ? error.response.data?.data:error.response;
+            console.log('error?.response');
             // toast(data,"error");
             
             ErrorHandler(data);

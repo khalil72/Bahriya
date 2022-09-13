@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Routes ,Route ,Navigate } from 'react-router-dom'
 import Dashboard from '../Components/PagesComponent/Dashboard/Dashboard'
 import EditProperties from '../Components/PagesComponent/Dashboard/UserProperties/EditProperties'
@@ -18,12 +18,12 @@ import Products from '../Pages/Products/Products'
 import Projects from '../Pages/Projects/Projects'
 
 import Signup from '../Pages/Signup/Signup'
-import {  useState } from "react";
+
 
 
 
 const RouterPath = () => {
- const [user,setUser]= useState(null);
+// const [token,setToken] = useState(null);
 
 
 
@@ -35,10 +35,8 @@ const RouterPath = () => {
 
 
 //  useEffect(()=>{
-// setUser({
-//   id:1,
-//   name:"Khalil"
-// })
+// const _tok = localStorage.getItem("token");
+// setToken(_tok)
 //  },[])
 
 
@@ -55,7 +53,7 @@ const RouterPath = () => {
             <Route path='/blogs'  element={<Blogs />} />
             <Route path='/aboutus'  element={<Aboutus />} />
             <Route path='/news'  element={<News />} />
-            {/* {!user ?
+            {/* {!token ?
               <> */}
                <Route path='/login'  element={<Login />} />
                <Route path='/signup'  element={<Signup />} />
