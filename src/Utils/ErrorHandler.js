@@ -11,7 +11,10 @@ export const ErrorHandler = (data)=>{
   })
         }else{
         toast(child[0],"error");
+        // toast(typeof child === Array ?child[0]:child,"error");
   
         }
     }
 }
+
+

@@ -19,7 +19,7 @@ var ErrorHandler = function ErrorHandler(data) {
         (0, _Toast.toast)(c, "error");
       });
     } else {
-      (0, _Toast.toast)(child[0], "error");
+      (0, _Toast.toast)(child[0], "error"); // toast(typeof child === Array ?child[0]:child,"error");
     }
   }
 };

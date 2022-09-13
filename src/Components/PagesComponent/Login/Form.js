@@ -44,7 +44,7 @@ const Form = () => {
         }
       })
       .catch((error)=>{
-        // alert('error data')
+        // alert('error')
         
         if(error.response){
             // const data = error.message;
