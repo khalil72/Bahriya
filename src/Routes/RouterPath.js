@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes ,Route ,Navigate } from 'react-router-dom'
 import Dashboard from '../Components/PagesComponent/Dashboard/Dashboard'
 import EditProperties from '../Components/PagesComponent/Dashboard/UserProperties/EditProperties'
@@ -22,11 +22,20 @@ import Signup from '../Pages/Signup/Signup'
 
 
 const RouterPath = () => {
+ const [user,setUser]= React.useState(null);
+
+//  useEffect(()=>{
+// setUser({
+//   id:1,
+//   name:"Khalil"
+// })
+//  },[])
+
+
   return (
     <div>
-        <Routes>
-            
-            <Route path='/' exact element={<Navigate to='/Home'  / >}  />
+      <Routes>
+          <Route path='/' exact element={<Navigate to='/Home'  / >}  />
             <Route path='/home' element={<Home />} />
             <Route path='/listingProperty' element={<ListingProperty />} />
           
@@ -34,22 +43,35 @@ const RouterPath = () => {
             <Route path='/products'  element={<Products />} />
             <Route path='/architect'  element={<Architect />} />
             <Route path='/blogs'  element={<Blogs />} />
-            <Route path='/login'  element={<Login />} />
-            <Route path='/signup'  element={<Signup />} />
             <Route path='/aboutus'  element={<Aboutus />} />
             <Route path='/news'  element={<News />} />
+            {!user ?
+              <>
+               <Route path='/login'  element={<Login />} />
+               <Route path='/signup'  element={<Signup />} />
+              </>  
+                  :
+                 <>
+                  <Route path='/dashboard'  element={<Dashboard />} />
+                  <Route path='/dashboard/MyProperties'  element={<MyProperties />} />
+                  <Route path='/dashboard/MyProperties/Edit'  element={<EditProperties />} />
+                  <Route path='/dashboard/MyProperties/AddProperty/Buy'  element={<BuyProperties />} />
+                  <Route path='/dashboard/MyProperties/AddProperty/Rent'  element={<RentProperties />} />
+                 </> 
+
+              }
+            <Route path='*'  element={()=><h1>Page Not FOund</h1>} />
+
+               
+       </Routes>
+
+          
             
-            <Route path='/dashboard'  element={<Dashboard />} />
-            <Route path='/dashboard/MyProperties'  element={<MyProperties />} />
-            <Route path='/dashboard/MyProperties/Edit'  element={<EditProperties />} />
-            <Route path='/dashboard/MyProperties/AddProperty/Buy'  element={<BuyProperties />} />
-            <Route path='/dashboard/MyProperties/AddProperty/Rent'  element={<RentProperties />} />
-
-
+          
           
 
 
-        </Routes>
+        
         
     </div>
   )

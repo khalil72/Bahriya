@@ -1,7 +1,7 @@
 import React ,{useState , useEffect}from 'react'
 import { AppBar,         Toolbar, Typography  } from '@mui/material'
 import { Box, Container } from '@mui/system'
-import Property051 from '../../Assets/Images/Logo.png'
+import Property051 from '../../Assets/Images/bahriahousinglogo.png'
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';

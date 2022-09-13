@@ -10,17 +10,10 @@ const Layout = () => {
   return (
     <>
       <Header />
-     
-       
       <Box style={{marginBottom:'0px !important'}}>
       <RouterPath />
       </Box>
      
-      
-   
-     
-        
-       
       <Footer />
     </>
   )
