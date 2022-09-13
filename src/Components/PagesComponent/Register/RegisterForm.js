@@ -10,7 +10,7 @@ import axios from 'axios';
 
 import { Link,  useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../../Utils/Constant';
-import { toast } from '../../../Utils/Toast';
+// import { toast } from '../../../Utils/Toast';
 import { ErrorHandler } from '../../../Utils/ErrorHandler';
 
 
@@ -69,7 +69,6 @@ const RegisterForm = () => {
       setLastName('');
       setConfirmPassword('');
      
-
       const userData ={
         email : email,
         password:password,
@@ -88,7 +87,7 @@ const RegisterForm = () => {
        // console.log(response.data);
        const data = response.data;
        if(data.status){
-        navigate("/login")
+        navigate('/login')
        }
     
       })

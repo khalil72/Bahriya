@@ -7,20 +7,50 @@ import Checkbox from '@mui/material/Checkbox';
 import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import { Link ,  useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { BASE_URL } from '../../../Utils/Constant';
+import axios from 'axios';
+import { ErrorHandler } from '../../../Utils/ErrorHandler';
+
 
 const Form = () => {
     const navigate = useNavigate();
+    const [email , setEmail] = useState('');
+    const [password , setPassword] = useState('');
+
 
     const onSubmit =(e)=> {
         e.preventDefault();
-        const data = new FormData(e.currentTarget);
-        navigate('/dashboard');
-        console.log({
-            email:data.get('email'),
-            password:data.get('password'),
-        })
+        console.log(email,password);
+        setEmail('');
+        setPassword('');
 
+        const userData ={
+            email:email,
+            password:password
+        }
 
+      axios.post(`${BASE_URL}login` , userData)
+      .then((response)=>{
+        const data= response.data;
+        if(data.status){
+            navigate('/dashboard')
+        }
+
+      })
+      .catch((error)=>{
+        if(error.response){
+            const data = error.response.data?.data;
+            ErrorHandler(data)
+            console.log(error?.response);
+            console.log("server responded");
+        }
+        else if (error.request) {
+            console.log("network error");
+          } else {
+            console.log(error);
+          }
+      });
     }
   return (
     <Box sx={{my:3, mx:4 ,display:'flex' , flexDirection:'column',
@@ -45,6 +75,8 @@ const Form = () => {
              autoComplete="email"
              autoFocus
              size="large"
+             onChange={(e) => setEmail(e.target.value)}
+
             
             />
              <TextField
@@ -56,6 +88,7 @@ const Form = () => {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e) => setPassword(e.target.value)}
               />
 
             

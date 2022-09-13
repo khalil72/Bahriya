@@ -13,17 +13,18 @@ import CssBaseline from '@mui/material/CssBaseline';
 const useStyle = makeStyles({
   Link: {
     textDecoration: 'none',
-    color:' white !important',
+    color:' black !important',
     padding: '0px 8px ',
     marginTop:'8px'
     
   },
   
   AppBar:{
-    backgroundColor:'rgba(0,0,0,0.5) !important',
+    backgroundColor:'white !important',
     borderBottom: '1px solid rgb(200, 200, 200)',
     fontSize: '14px',
-    boxShadow:'none !important'
+    boxShadow:'none !important',
+    color:'black'
 
   },
 
@@ -74,9 +75,10 @@ const Header = (props) => {
               flexGrow: 0,
              
               
-              color: 'inherit',
+              color: 'black',
               textDecoration: 'none',
-              mr: 1
+              mr: 0,
+              mt:2
             }}
           >
             <Link to='/home'> <img src={Property051}  height='37px' alt=''  />
