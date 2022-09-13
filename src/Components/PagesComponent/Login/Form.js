@@ -40,7 +40,7 @@ const Form = () => {
             // const token = data?.data?.token;
             // console.log("🚀 ~ file: Form.js ~ line 41 ~ .then ~ token", token)
             // localStorage.setItem("token",token);
-             navigate('dashboard');
+             navigate('/dashboard');
         }
         // else{
         //     navigate('login');
