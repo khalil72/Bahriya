@@ -60,8 +60,8 @@ const RegisterForm = () => {
   const RegisterSubmit = async(e) =>
     {
      e.preventDefault();
-     console.log(phone
-      ,email,password , firstName , lastName ,);
+    //  console.log(phone
+    //   ,email,password , firstName , lastName ,);
       setEmail('');
       setPhone('');
       setPassword('');

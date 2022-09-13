@@ -11,17 +11,20 @@ import { useState } from 'react';
 import { BASE_URL } from '../../../Utils/Constant';
 import axios from 'axios';
 import { ErrorHandler } from '../../../Utils/ErrorHandler';
+import { toast } from '../../../Utils/Toast';
+
 
 
 const Form = () => {
     const navigate = useNavigate();
     const [email , setEmail] = useState('');
     const [password , setPassword] = useState('');
+   
 
 
-    const onSubmit =(e)=> {
+    const onSubmit =  async(e) => {
         e.preventDefault();
-        console.log(email,password);
+        // console.log(email,password);
         setEmail('');
         setPassword('');
 
@@ -31,21 +34,30 @@ const Form = () => {
         }
 
       axios.post(`${BASE_URL}login` , userData)
-      .then((response)=>{
+      .then((response) => {
         const data= response.data;
+        // console.log('data.status');
         if(data.status){
-            navigate('/dashboard')
+             navigate('/dashboard');
+            // console.log('data link')
         }
-
+        else{
+            alert('data found')
+        }
       })
       .catch((error)=>{
+        
         if(error.response){
-            const data = error.response.data?.data;
-            ErrorHandler(data)
+            const data = error.message;
+
+            // const data = error.response.data?.data;
+            // console.log('error?.response');
+            // toast(data,"error");
+            ErrorHandler(data);
+           
             console.log(error?.response);
             console.log("server responded");
-        }
-        else if (error.request) {
+        }else if (error.request) {
             console.log("network error");
           } else {
             console.log(error);
@@ -76,6 +88,8 @@ const Form = () => {
              autoFocus
              size="large"
              onChange={(e) => setEmail(e.target.value)}
+             value={email}
+          
 
             
             />
@@ -89,6 +103,7 @@ const Form = () => {
                 id="password"
                 autoComplete="current-password"
                 onChange={(e) => setPassword(e.target.value)}
+                value={password}
               />
 
             
