@@ -5,6 +5,7 @@ import LockOpenIcon from '@mui/icons-material/LockOpen';
 import MuiPhoneNumber from 'material-ui-phone-number';
 // import FormControlLabel from '@mui/material/FormControlLabel';
 // import Checkbox from '@mui/material/Checkbox';
+import { useDispatch ,useSelector } from 'react-redux';
 
 import axios from 'axios';
 
@@ -19,14 +20,20 @@ const RegisterForm = () => {
   const navigate = useNavigate()
   const [phone, setPhone] = useState("");
   const [phoneError, setPhoneError] = useState(false);
-  const [success, setSuccess] = useState(false);
+  // const [success, setSuccess] = useState(false);
   const handlePhone = (value, countrydata) => {
       setPhoneError(false);
       setPhone(value);
 
-  }  
+  } 
+  
+  const { loading, userInfo, error, success } = useSelector(
+    (state) => state.user
+  )
+  const dispatch = useDispatch()
+
   const [emailExisted,setEmailExisted]=useState(false);
-  const [phoneExisted , setPhoneExisted]=useState(false);
+  // const [phoneExisted , setPhoneExisted]=useState(false);
   // const[phone, setPhone] = useState('');
   const [email , setEmail] = useState('');
  
@@ -56,6 +63,12 @@ const RegisterForm = () => {
     }
   }
 
+  useEffect(() => {
+    // redirect user to login page if registration was successful
+    if (success) navigate('/login')
+    // redirect authenticated user to profile screen
+    if (userInfo) navigate('/dashoard')
+  }, [navigate, userInfo, success])
  
   const RegisterSubmit = async(e) =>
     {
