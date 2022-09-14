@@ -87,12 +87,12 @@ const RegisterForm = () => {
        // console.log(response.data);
        const data = response.data;
       
-       if(data.status){
+       if(data.success){
         navigate('/dashboard')
        }
-       else{
-        navigate('/dashboard')
-       }
+      //  else{
+      //   navigate('/dashboard')
+      //  }
     
       })
       .catch((error)=> {
